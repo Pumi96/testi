@@ -1,0 +1,4 @@
+$computers = Get-WmiObject -Namespace root\directory\ldap -Class ds_computer | select -ExpandProperty ds_cn
+
+foreach ($computer in $computers) 
+{(Get-WmiObject win32_computersystem -Computer $computer).name}
